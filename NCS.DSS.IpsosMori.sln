@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCS.DSS.IpsosMori", "NCS.DSS.IpsosMori\NCS.DSS.IpsosMori.csproj", "{72BB17F4-29D7-4181-BC01-05A0FAEC83FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCS.DSS.IpsosMori.Tests", "NCS.DSS.IpsosMori.Tests\NCS.DSS.IpsosMori.Tests.csproj", "{80B522DE-C454-496C-A784-89AEBA44CF99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72BB17F4-29D7-4181-BC01-05A0FAEC83FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BB17F4-29D7-4181-BC01-05A0FAEC83FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BB17F4-29D7-4181-BC01-05A0FAEC83FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BB17F4-29D7-4181-BC01-05A0FAEC83FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B522DE-C454-496C-A784-89AEBA44CF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B522DE-C454-496C-A784-89AEBA44CF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B522DE-C454-496C-A784-89AEBA44CF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B522DE-C454-496C-A784-89AEBA44CF99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1283C825-03F3-4609-8033-4A78207B58DB}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environmentName": {
+            "value": "FOO"
+        },
+        "functionAppNames": {
+            "value": [ "dss-foo-ipsosmori-fa" ]
+        },
+        "sharedAppServicePlanName": {
+            "value": "dss-foo-shared-asp"
+        },
+        "sharedAppServicePlanResourceGroup": {
+            "value": "dss-foo-shared-rg"
+        },
+        "storageAccountName": {
+            "value": "dssfooshdarmstr"
+        },
+        "storageAccountKey": {
+            "value": "not-a-real-key"
+        },
+        "templateBaseUrl": {
+            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/SDD-123-AddPipelineResources-v3/Resources/"
+        }
+    }
+}

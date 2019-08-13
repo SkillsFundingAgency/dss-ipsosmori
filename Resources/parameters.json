@@ -1,0 +1,27 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environmentName": {
+            "value": "__ReleaseEnvironmentName__"
+        },
+        "functionAppNames": {
+            "value": [ "__FunctionAppName__" ]
+        },
+        "sharedAppServicePlanName": {
+            "value": "__SharedAppServicePlanName__"
+        },
+        "sharedAppServicePlanResourceGroup": {
+            "value": "__SharedResourceGroup__"
+        },
+        "storageAccountName": {
+            "value": "__SharedStorageAccount__"
+        },
+        "storageAccountKey": {
+            "value": "__SharedStorageAccountKey__"
+        },
+        "templateBaseUrl": {
+            "value": "__NestedArmTemplateBaseUrl__"
+        }
+    }
+}

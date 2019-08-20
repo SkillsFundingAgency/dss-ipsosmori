@@ -7,9 +7,9 @@ namespace NCS.DSS.IpsosMori.Helpers
 {
     public class FtpHelper : IFtpHelper
     {
-        private readonly string _ftpUsername = Environment.GetEnvironmentVariable("ftpUsername");
-        private readonly string _ftpPassword = Environment.GetEnvironmentVariable("ftpPassword");
-        private readonly string _ftpAddress = Environment.GetEnvironmentVariable("ftpAddress");
+        private readonly string _ftpUsername = Environment.GetEnvironmentVariable("FtpUsername");
+        private readonly string _ftpPassword = Environment.GetEnvironmentVariable("FtpPassword");
+        private readonly string _ftpAddress = Environment.GetEnvironmentVariable("FtpAddress");
 
 
         public void UploadDataToFtp(string data, string fileName)

@@ -22,6 +22,12 @@
         },
         "templateBaseUrl": {
             "value": "__NestedArmTemplateBaseUrl__"
+        },
+        "ftpPassword": {
+            "value": "__FtpPassword__"
+        },
+        "azureSqlConnectionString": {
+            "value": "__AzureSQLConnectionString__"
         }
     }
 }

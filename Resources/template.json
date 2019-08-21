@@ -22,6 +22,12 @@
         },
         "templateBaseUrl": {
             "type": "string"
+        },
+        "ftpPassword": {
+            "type": "securestring"
+        },
+        "azureSqlConnectionString": {
+            "type": "securestring"
         }
     },
     "variables": {
@@ -54,6 +60,12 @@
                     },
                     "storageAccountKey": {
                         "value": "[parameters('storageAccountKey')]"
+                    },
+                    "ftpPassword": {
+                        "value": "[parameters('ftpPassword')]"
+                    },
+                    "azureSqlConnectionString": {
+                        "value": "[parameters('azureSqlConnectionString')]"
                     }
                 }
             },

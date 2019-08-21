@@ -21,7 +21,7 @@
             "value": "not-a-real-key"
         },
         "templateBaseUrl": {
-            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/SDD-126-AddInitialAppSettings-v3/Resources/"
+            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/master-v3/Resources/"
         },
         "ftpPassword": {
             "value": "not-a-real-password"

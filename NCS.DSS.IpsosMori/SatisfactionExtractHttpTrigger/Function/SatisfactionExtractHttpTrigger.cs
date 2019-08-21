@@ -17,7 +17,7 @@ namespace NCS.DSS.IpsosMori.SatisfactionExtractHttpTrigger.Function
         }
 
         [FunctionName("SatisfactionExtractHttpTrigger")]
-        public void Run([TimerTrigger(Schedule, RunOnStartup = true)] TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger(Schedule)] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");
 

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Text;
 
 namespace NCS.DSS.IpsosMori.Helpers
@@ -24,6 +25,13 @@ namespace NCS.DSS.IpsosMori.Helpers
             {
                 foreach (var rowValue in dr.ItemArray)
                 {
+
+                    if (rowValue.ToString() == string.Empty)
+                    {
+                        fileContent.Append(",");
+                        continue;
+                    }
+
                     fileContent.Append("\"" + rowValue + "\",");
                 }
 

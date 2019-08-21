@@ -22,7 +22,7 @@ namespace NCS.DSS.IpsosMori.SatisfactionExtractHttpTrigger.Function
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");
 
             var fileName = string.Format("{0}_{1}_{2}.{3}", "Satisfaction",
-                DateTime.Now.ToString("MMMM", CultureInfo.InvariantCulture), DateTime.UtcNow.Year, "csv");
+                DateTime.Now.AddMonths(-1).ToString("MMMM", CultureInfo.InvariantCulture), DateTime.UtcNow.Year, "csv");
 
             log.LogInformation(string.Format("attempting to get data for: {0}", fileName));
 

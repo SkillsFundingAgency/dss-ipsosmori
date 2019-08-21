@@ -16,6 +16,12 @@
         },
         "storageAccountKey": {
             "type": "string"
+        },
+        "ftpPassword": {
+            "type": "securestring"
+        },
+        "azureSqlConnectionString": {
+            "type": "securestring"
         }
     },
     "variables": {
@@ -56,6 +62,26 @@
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
                             "value": "[reference(concat('microsoft.insights/components/', variables('appInsightsName'))).InstrumentationKey]"
+                        },
+                        {
+                            "name": "PollingSchedule",
+                            "value": "0 0 17 10 * *"
+                        },
+                        {
+                            "name": "AzureSQLConnectionString",
+                            "value": "[parameters('azureSqlConnectionString')]"
+                        },
+                        {
+                            "name": "FtpUsername",
+                            "value": "dss_ipsos"
+                        },
+                        {
+                            "name": "FtpPassword",
+                            "value": "[parameters('ftpPassword')]"
+                        },
+                        {
+                            "name": "FtpAddress",
+                            "value": "ftp://sfa.ftpstream.com/"
                         }
                     ]
                 }

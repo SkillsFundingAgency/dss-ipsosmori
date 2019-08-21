@@ -65,7 +65,7 @@
                         "value": "[parameters('ftpPassword')]"
                     },
                     "azureSqlConnectionString": {
-                        "type": "[parameters('azureSqlConnectionString')]"
+                        "value": "[parameters('azureSqlConnectionString')]"
                     }
                 }
             },

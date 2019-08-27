@@ -10,7 +10,7 @@ namespace NCS.DSS.IpsosMori.DB
 
         public DataTable GetDemographicExtract()
         {
-            return ExecuteStoredProcedure("usp_GetDemographicDataForIpsosMoriIntegration");
+            return ExecuteStoredProcedure("usp_GetDemographicsDataForIpsosMoriIntegration");
         }
 
         public DataTable GetSatisfactionExtract()

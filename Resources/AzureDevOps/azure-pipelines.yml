@@ -38,7 +38,6 @@ jobs:
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
-  dependsOn: TokenizeArmTemplateTestParametersFile
   parameters:
     ArmTemplateRoot: '$(System.DefaultWorkingDirectory)\Resources'
     AzureSubscription: 'SFA-DSS-DevTest'

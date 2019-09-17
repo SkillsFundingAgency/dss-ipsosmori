@@ -2,6 +2,7 @@ variables:
     SolutionBaseName: 'NCS.DSS.IpsosMori'
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
+    TemplateBaseUrl: 'https://raw.githubusercontent.com/SkillsFundingAgency/$(Build.Repository.Name)/$(Build.SourceBranchName)/Resources/'
 
 resources:
   repositories:
@@ -36,6 +37,17 @@ jobs:
      targetType: 'filePath'
      filePath: $(TestBranchNameScriptFilePath)
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
+  
+- job: TokenizeArmTemplateTestParametersFile
+  displayName: 'Tokenize ARM template test-parameters.json file'
+  pool:
+    name: "DAS - Continuous Deployment"
+  steps:
+    - task: esfadevops.Tokenization.custom-build-task.Tokenization@0
+      displayName: 'Tokenization: Transform file parameters.json'
+      inputs:
+        SourcePath: '$(System.DefaultWorkingDirectory)\Resources'
+        TargetFileNames: test-parameters.json
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
   parameters:

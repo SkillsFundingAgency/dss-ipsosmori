@@ -37,7 +37,7 @@ jobs:
      targetType: 'filePath'
      filePath: $(TestBranchNameScriptFilePath)
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
-  - powershell: if ("$(Build.SourceBranchName)" -eq "merge") { Write-Output "##vso[task.setvariable variable=TemplateBaseUrl;isOutput=false]https://raw.githubusercontent.com/$(Build.Repository.Name)/$(System.PullRequest.SourceBranch)/Resources" }
+  - powershell: if ("$(Build.SourceBranchName)" -eq "merge") { Write-Output "##vso[task.setvariable variable=TemplateBaseUrl;isOutput=true]https://raw.githubusercontent.com/$(Build.Repository.Name)/$(System.PullRequest.SourceBranch)/Resources" }
     name: WritePRBranchNameToTemplateBaseUrl
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops

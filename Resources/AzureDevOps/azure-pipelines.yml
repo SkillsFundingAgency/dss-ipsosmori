@@ -2,7 +2,7 @@ variables:
     SolutionBaseName: 'NCS.DSS.IpsosMori'
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
-    TemplateBaseUrl: 'https://raw.githubusercontent.com/SkillsFundingAgency/$(Build.Repository.Name)/$(Build.SourceBranchName)/Resources/'
+    TemplateBaseUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)/$(Build.SourceBranchName)/Resources'
 
 resources:
   repositories:

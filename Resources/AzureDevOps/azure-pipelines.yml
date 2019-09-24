@@ -2,7 +2,8 @@ variables:
     SolutionBaseName: 'NCS.DSS.IpsosMori'
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
-    TemplateBaseUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)/$(Build.SourceBranchName)/Resources'
+    TemplateBranchName: $[ coalesce(variables.System.PullRequest.SourceBranch, variables.Build.SourceBranchName)]
+    TemplateBaseUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)/$(TemplateBranchName)/Resources'
 
 resources:
   repositories:

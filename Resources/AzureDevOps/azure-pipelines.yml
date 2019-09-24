@@ -3,7 +3,7 @@ variables:
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
     TemplateBranchName: $[ coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranchName']) ]
-    TemplateBaseUrl: $[ format('https://raw.githubusercontent.com/{0}/{1}/Resources', variables['Build.Repository.Name'], variables['TemplateBranchName']) ]
+    TemplateBaseUrl: $[ format('https://raw.githubusercontent.com/{0}/{1}/Resources', $(Build.Repository.Name), variables['TemplateBranchName']) ]
 
 resources:
   repositories:

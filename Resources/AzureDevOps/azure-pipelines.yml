@@ -2,8 +2,8 @@ variables:
     SolutionBaseName: 'NCS.DSS.IpsosMori'
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
-    TemplateBranchName: $[ coalesce(variables.System.PullRequest.SourceBranch, variables.Build.SourceBranchName)]
-    TemplateBaseUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)/$(TemplateBranchName)/Resources'
+    TemplateBranchName: $[ coalesce(variables.System.PullRequest.SourceBranch, variables.Build.SourceBranchName) ]
+    TemplateBaseUrl: $[ format('https://raw.githubusercontent.com/{0}/{1}/Resources', variables.Build.Repository.Name, variables.TemplateBranchName) ]
 
 resources:
   repositories:
@@ -38,8 +38,9 @@ jobs:
      targetType: 'filePath'
      filePath: $(TestBranchNameScriptFilePath)
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
-  - powershell: if ("$(Build.SourceBranchName)" -eq "merge") { Write-Output "##vso[task.setvariable variable=TemplateBaseUrl;isOutput=true]https://raw.githubusercontent.com/$(Build.Repository.Name)/$(System.PullRequest.SourceBranch)/Resources" }
-    name: WritePRBranchNameToTemplateBaseUrl
+  - powershell: |
+        Write-Host $(TemplateBranchName)
+        Write-Host $(TemplateBaseUrl)
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
   parameters:

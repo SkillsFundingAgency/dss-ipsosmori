@@ -39,10 +39,6 @@ jobs:
      targetType: 'filePath'
      filePath: $(TestBranchNameScriptFilePath)
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
-  - powershell: |
-        Write-Host $(TemplateBranchName)
-        Write-Host $(TemplateRepoUrl)
-        Write-Host $(TemplateBaseUrl)
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
   parameters:

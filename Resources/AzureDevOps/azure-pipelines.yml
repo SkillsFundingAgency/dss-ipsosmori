@@ -3,7 +3,8 @@ variables:
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
     TemplateBranchName: $[ coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranchName']) ]
-    TemplateBaseUrl: $[ format('https://raw.githubusercontent.com/{0}/{1}/Resources', $(Build.Repository.Name), variables['TemplateBranchName']) ]
+    TemplateRepoUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)'
+    TemplateBaseUrl: $[ '{0}/{1}/Resources', variables['TemplateRepoUrl'], variables['TemplateBranchName']) ]
 
 resources:
   repositories:
@@ -40,6 +41,7 @@ jobs:
      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
   - powershell: |
         Write-Host $(TemplateBranchName)
+        Write-Host $(TemplateRepoUrl)
         Write-Host $(TemplateBaseUrl)
 
 - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops

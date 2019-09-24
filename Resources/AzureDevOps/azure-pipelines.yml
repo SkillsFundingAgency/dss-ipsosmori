@@ -2,6 +2,9 @@ variables:
     SolutionBaseName: 'NCS.DSS.IpsosMori'
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
+    TemplateBranchName: $[ coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranchName']) ]
+    TemplateRepoUrl: 'https://raw.githubusercontent.com/$(Build.Repository.Name)'
+    TemplateBaseUrl: $[ format('{0}/{1}/Resources', variables['TemplateRepoUrl'], variables['TemplateBranchName']) ]
 
 resources:
   repositories:
@@ -9,7 +12,7 @@ resources:
   - repository: dfc-devops
     type: github
     name: SkillsFundingAgency/dfc-devops
-    ref: refs/tags/v1.6.0
+    ref: refs/tags/v1.6.3
     endpoint: 'GitHub (CDH)'
 
 jobs:
@@ -41,6 +44,7 @@ jobs:
   parameters:
     ArmTemplateRoot: '$(System.DefaultWorkingDirectory)\Resources'
     AzureSubscription: 'SFA-DSS-DevTest'
+    TokenizeTestParameters: true
 
 # Build the app with the dfc-dotnetcore-build template.  Runs if the output of TestBranchName is Version2+
 - job: BuildDotNetStandard

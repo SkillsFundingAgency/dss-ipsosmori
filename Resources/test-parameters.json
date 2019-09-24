@@ -21,7 +21,7 @@
             "value": "not-a-real-key"
         },
         "templateBaseUrl": {
-            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/SDD-186-AddAppSettings-v3/Resources/"
+            "value": "__TemplateBaseUrl__"
         },
         "ftpAddress": {
             "value": "ftp://foo.ftpstream.com/dss-testing/dev/"

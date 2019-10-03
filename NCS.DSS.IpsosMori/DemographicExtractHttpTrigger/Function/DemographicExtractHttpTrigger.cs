@@ -16,8 +16,8 @@ namespace NCS.DSS.IpsosMori.DemographicExtractHttpTrigger.Function
             _demographicExtractService = demographicExtractService;
         }
 
-        [FunctionName("DemographicExtractHttpTrigger")]
-        public void Run([TimerTrigger(Schedule)] TimerInfo myTimer, ILogger log)
+        [FunctionName("DemographicExtractHttpTrigger")]       
+        public void Run([TimerTrigger(Schedule, RunOnStartup = true)] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.UtcNow}");
 

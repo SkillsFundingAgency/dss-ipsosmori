@@ -12,11 +12,10 @@ namespace NCS.DSS.IpsosMori.DemographicExtractHttpTrigger.Service
         private readonly IAzureSqlDbProvider _azureSqlDbProvider;
         private readonly IFtpHelper _ftpHelper;
 
-        public DemographicExtractService(IAzureSqlDbProvider azureSqlDbProvider, IFtpHelper ftpHelper, ICsvHelper csvHelper)
+        public DemographicExtractService(IAzureSqlDbProvider azureSqlDbProvider, IFtpHelper ftpHelper)
         {
             _azureSqlDbProvider = azureSqlDbProvider;
             _ftpHelper = ftpHelper;
-            // _csvHelper = csvHelper;
         }
 
         public DataTable GetDemographicExtractDataTable()
@@ -30,8 +29,6 @@ namespace NCS.DSS.IpsosMori.DemographicExtractHttpTrigger.Service
             _ftpHelper.UploadDataToFtp(stream, filePath);
         }
 
-
-        //-----------------------------------------------------
         public string ConvertDataTableToCsvAsString(DataTable dataTable)
         {
             PreProcessRawQueryData(dataTable);
@@ -75,15 +72,12 @@ namespace NCS.DSS.IpsosMori.DemographicExtractHttpTrigger.Service
             dataTable.Columns.RemoveAt(0); 
             dataTable.Columns[0].ColumnName = DateTime.Now.AddMonths(-1).ToString("MMM-yy", CultureInfo.InvariantCulture);
 
-            // blank row
             dataTable.Rows.InsertAt(dataTable.NewRow(), 0);
             dataTable.Rows[1][0] = "Age";
 
-            // insert row for Age
             dataTable.Rows.InsertAt(dataTable.NewRow(), 6);
             dataTable.Rows[6][0] = "Employment Status adult - By employment category";
 
-            // blank row
             dataTable.Rows.InsertAt(dataTable.NewRow(), 14);
             dataTable.Rows[14][0] = "Gender";
 

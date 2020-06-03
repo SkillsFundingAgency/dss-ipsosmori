@@ -9,10 +9,10 @@
             "value": [ "dss-foo-ipsosmori-fa" ]
         },
         "sharedAppServicePlanName": {
-            "value": "dss-foo-shared-asp"
+            "value": "dfc-dev-app-shared-asp"
         },
         "sharedAppServicePlanResourceGroup": {
-            "value": "dss-foo-shared-rg"
+            "value": "dfc-dev-app-sharedresources-rg"
         },
         "storageAccountName": {
             "value": "dssfooshdarmstr"

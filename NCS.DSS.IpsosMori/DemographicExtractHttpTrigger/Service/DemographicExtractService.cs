@@ -71,7 +71,7 @@ namespace NCS.DSS.IpsosMori.DemographicExtractHttpTrigger.Service
 
             dataTable.Columns.RemoveAt(0); 
             dataTable.Columns[0].ColumnName = DateTime.Now.AddMonths(-1).ToString("MMM-yy", CultureInfo.InvariantCulture);
-
+            dataTable.Columns[0].AllowDBNull = true;
             dataTable.Rows.InsertAt(dataTable.NewRow(), 0);
             dataTable.Rows[1][0] = "Age";
 

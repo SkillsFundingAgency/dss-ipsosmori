@@ -31,15 +31,15 @@ jobs:
     name: DownloadTestBranchNameScript
     displayName: 'Download Test-BranchName script'
     inputs:
-    targetType: 'inline'
-    script: Invoke-WebRequest -Uri $(TestBranchNameScriptUrl) -OutFile $(TestBranchNameScriptFilePath)
+      targetType: 'inline'
+      script: Invoke-WebRequest -Uri $(TestBranchNameScriptUrl) -OutFile $(TestBranchNameScriptFilePath)
   - task: PowerShell@2
     name: ExecuteTestBranchNameScript
     displayName: Test-BranchName
     inputs:
-    targetType: 'filePath'
-    filePath: $(TestBranchNameScriptFilePath)
-    arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
+      targetType: 'filePath'
+      filePath: $(TestBranchNameScriptFilePath)
+      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
 
   - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
     parameters:

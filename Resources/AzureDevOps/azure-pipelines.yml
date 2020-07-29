@@ -1,7 +1,7 @@
 variables:
-    SolutionBaseName: 'NCS.DSS.IpsosMori'
-    BuildPlatform: 'any cpu'
-    BuildConfiguration: 'release'
+  SolutionBaseName: 'NCS.DSS.IpsosMori'
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
 
 pool:
   name: NCS - CI and CD

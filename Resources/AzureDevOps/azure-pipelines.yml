@@ -3,25 +3,26 @@ variables:
     BuildPlatform: 'any cpu'
     BuildConfiguration: 'release'
 
-resources:
-  repositories:
-  - repository: self
-  - repository: dfc-devops
-    type: github
-    name: SkillsFundingAgency/dfc-devops
-    ref: refs/tags/v1.6.0
-    endpoint: 'GitHub (CDH)'
-
 pool:
   name: NCS - CI and CD
   demands:
     - msbuild
     - visualstudio
 
+resources:
+  repositories:
+  - repository: self
+  - repository: dfc-devops
+    type: github
+    name: SkillsFundingAgency/dfc-devops
+    ref: refs/tags/v1.10.4
+    endpoint: 'GitHub (CDH)'
+
 jobs:
 # Test the branch name, the output of this job will satisfy the condition of one or neither of the subsequent jobs
 - job: TestBranchName
   displayName: TestBranchName
+
   variables:
     TestBranchNameScriptUrl: https://raw.githubusercontent.com/SkillsFundingAgency/dss-devops/master/Scripts/Test-BranchName.ps1
     TestBranchNameScriptFilePath: $(System.DefaultWorkingDirectory)\Test-BranchName.ps1

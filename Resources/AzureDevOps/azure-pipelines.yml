@@ -23,29 +23,29 @@ jobs:
 - job: TestBranchName
   displayName: TestBranchName
 
-variables:
-  TestBranchNameScriptUrl: https://raw.githubusercontent.com/SkillsFundingAgency/dss-devops/master/Scripts/Test-BranchName.ps1
-  TestBranchNameScriptFilePath: $(System.DefaultWorkingDirectory)\Test-BranchName.ps1
+  variables:
+    TestBranchNameScriptUrl: https://raw.githubusercontent.com/SkillsFundingAgency/dss-devops/master/Scripts/Test-BranchName.ps1
+    TestBranchNameScriptFilePath: $(System.DefaultWorkingDirectory)\Test-BranchName.ps1
 
-steps:
-- task: PowerShell@2
-  name: DownloadTestBranchNameScript
-  displayName: 'Download Test-BranchName script'
-  inputs:
-   targetType: 'inline'
-   script: Invoke-WebRequest -Uri $(TestBranchNameScriptUrl) -OutFile $(TestBranchNameScriptFilePath)
-- task: PowerShell@2
-  name: ExecuteTestBranchNameScript
-  displayName: Test-BranchName
-  inputs:
-   targetType: 'filePath'
-   filePath: $(TestBranchNameScriptFilePath)
-   arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
+  steps:
+  - task: PowerShell@2
+    name: DownloadTestBranchNameScript
+    displayName: 'Download Test-BranchName script'
+    inputs:
+      targetType: 'inline'
+      script: Invoke-WebRequest -Uri $(TestBranchNameScriptUrl) -OutFile $(TestBranchNameScriptFilePath)
+  - task: PowerShell@2
+    name: ExecuteTestBranchNameScript
+    displayName: Test-BranchName
+    inputs:
+      targetType: 'filePath'
+      filePath: $(TestBranchNameScriptFilePath)
+      arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
 
-- template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
-  parameters:
-    ArmTemplateRoot: '$(System.DefaultWorkingDirectory)\Resources'
-    AzureSubscription: 'SFA-DSS-DevTest'
+  - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
+    parameters:
+      ArmTemplateRoot: '$(System.DefaultWorkingDirectory)\Resources'
+      AzureSubscription: 'SFA-DSS-DevTest'
 
 # Build the app with the dfc-dotnetcore-build template.  Runs if the output of TestBranchName is Version2+
 - job: BuildDotNetStandard
@@ -54,8 +54,8 @@ steps:
   condition: and(succeeded(), eq(dependencies.TestBranchName.outputs['ExecuteTestBranchNameScript.FunctionAppVersion'], 'Version2+'))
 
 steps:
-- template: AzureDevOpsTemplates/Build/dfc-dotnetcore-build.yml@dfc-devops
-  parameters:
-    SolutionBaseName: $(SolutionBaseName)
-    BuildPlatform: $(BuildPlatform)
-    BuildConfiguration: $(BuildConfiguration)
+  - template: AzureDevOpsTemplates/Build/dfc-dotnetcore-build.yml@dfc-devops
+    parameters:
+      SolutionBaseName: $(SolutionBaseName)
+      BuildPlatform: $(BuildPlatform)
+      BuildConfiguration: $(BuildConfiguration)

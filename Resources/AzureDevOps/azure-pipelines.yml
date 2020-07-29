@@ -22,6 +22,7 @@ jobs:
 # Test the branch name, the output of this job will satisfy the condition of one or neither of the subsequent jobs
 - job: TestBranchName
   displayName: TestBranchName
+  pool: Continuous Integration 02 - SSD - 160ACU
 
   variables:
     TestBranchNameScriptUrl: https://raw.githubusercontent.com/SkillsFundingAgency/dss-devops/master/Scripts/Test-BranchName.ps1
@@ -52,6 +53,12 @@ jobs:
   displayName: Build-DotNetStandard
   dependsOn: [ TestBranchName, TestArmTemplate ]
   condition: and(succeeded(), eq(dependencies.TestBranchName.outputs['ExecuteTestBranchNameScript.FunctionAppVersion'], 'Version2+'))
+  pool:
+    name: Continuous Integration 02 - SSD - 160ACU
+    demands:
+    - msbuild
+    - visualstudio
+  
   steps:
   - template: AzureDevOpsTemplates/Build/StepTemplates/dfc-dotnetcore-build.yml@dfc-devops
     parameters:

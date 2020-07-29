@@ -9,7 +9,7 @@ resources:
   - repository: dfc-devops
     type: github
     name: SkillsFundingAgency/dfc-devops
-    ref: refs/tags/v1.10.4
+    ref: refs/tags/v1.6.0
     endpoint: 'GitHub (CDH)'
 
 pool:
@@ -43,9 +43,9 @@ jobs:
       filePath: $(TestBranchNameScriptFilePath)
       arguments: '-BranchName $(Build.SourceBranchName) -PullRequestBranchName $(if ("$(Build.SourceBranchName)" -eq "merge") { "$(System.PullRequest.SourceBranch)" } else { "NotAPullRequest" } ) -PipelineType Build -Verbose'
 
-  - template: AzureDevOpsTemplates/Build/StepTemplates/dfc-arm-build.yml@dfc-devops
+  - template: AzureDevOpsTemplates/Build/dfc-arm-build.yml@dfc-devops
     parameters:
-      ArmTemplateRoot: '$(Build.SourcesDirectory)\Resources\ArmTemplates'
+      ArmTemplateRoot: '$(System.DefaultWorkingDirectory)\Resources'
       AzureSubscription: 'SFA-DSS-DevTest'
 
 # Build the app with the dfc-dotnetcore-build template.  Runs if the output of TestBranchName is Version2+
@@ -60,7 +60,7 @@ jobs:
     - visualstudio
   
   steps:
-  - template: AzureDevOpsTemplates/Build/StepTemplates/dfc-dotnetcore-build.yml@dfc-devops
+  - template: AzureDevOpsTemplates/Build/dfc-dotnetcore-build.yml@dfc-devops
     parameters:
       SolutionBaseName: $(SolutionBaseName)
       BuildPlatform: $(BuildPlatform)

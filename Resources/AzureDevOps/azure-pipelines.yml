@@ -4,13 +4,13 @@ variables:
   BuildConfiguration: 'release'
 
 resources:
-repositories:
-- repository: self
-- repository: dfc-devops
-  type: github
-  name: SkillsFundingAgency/dfc-devops
-  ref: refs/tags/v1.10.4
-  endpoint: 'GitHub (CDH)'
+  repositories:
+  - repository: self
+  - repository: dfc-devops
+    type: github
+    name: SkillsFundingAgency/dfc-devops
+    ref: refs/tags/v1.10.4
+    endpoint: 'GitHub (CDH)'
 
 pool:
   name: 'NCS - CI and CD'

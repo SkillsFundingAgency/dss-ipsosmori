@@ -21,15 +21,21 @@ namespace NCS.DSS.IpsosMori.Helpers
 
             request.Credentials = new NetworkCredential(_ftpUsername, _ftpPassword);
 
-            using (var memoryStream = new MemoryStream(Encoding.Default.GetBytes(data), true))
+            try
             {
-                using (var requestStream = request.GetRequestStream())
-                {
-                    memoryStream.CopyTo(requestStream);
-                    requestStream.Close();
-                }
-                memoryStream.Close();
+
+                byte[] bytes = Encoding.UTF8.GetBytes(data);
+
+                var ftpStream = request.GetRequestStream();
+                ftpStream.Write(bytes, 0, bytes.Length);
+                ftpStream.Close();
             }
+            catch (WebException e)
+            {
+                String status = ((FtpWebResponse)e.Response).StatusDescription;
+            }
+
+
 
         }
 

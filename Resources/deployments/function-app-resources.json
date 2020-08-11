@@ -20,6 +20,9 @@
         "ftpPassword": {
             "type": "securestring"
         },
+        "ftpUsername": {
+            "type": "securestring"
+        },
         "azureSqlConnectionString": {
             "type": "securestring"
         }
@@ -73,7 +76,7 @@
                         },
                         {
                             "name": "FtpUsername",
-                            "value": "dss_ipsos"
+                            "value": "[parameters('ftpUsername')]"
                         },
                         {
                             "name": "FtpPassword",

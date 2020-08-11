@@ -29,6 +29,9 @@
         "ftpPassword": {
             "type": "securestring"
         },
+        "ftpUsername": {
+            "type": "securestring"
+        },
         "azureSqlConnectionString": {
             "type": "securestring"
         }
@@ -69,6 +72,9 @@
                     },
                     "ftpPassword": {
                         "value": "[parameters('ftpPassword')]"
+                    },
+                    "ftpUsername": {
+                        "value": "[parameters('ftpUsername')]"
                     },
                     "azureSqlConnectionString": {
                         "value": "[parameters('azureSqlConnectionString')]"

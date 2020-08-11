@@ -29,6 +29,9 @@
         "ftpPassword": {
             "value": "not-a-real-password"
         },
+        "ftpUsername": {
+            "value": "not-a-real-user"
+        },
         "azureSqlConnectionString": {
             "value": "not-a-real-connection-string"
         }

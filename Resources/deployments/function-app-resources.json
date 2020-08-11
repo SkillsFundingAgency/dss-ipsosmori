@@ -17,10 +17,10 @@
         "storageAccountKey": {
             "type": "string"
         },
-        "ftpAddress": {
-            "type": "string"
-        },
         "ftpPassword": {
+            "type": "securestring"
+        },
+        "ftpUsername": {
             "type": "securestring"
         },
         "azureSqlConnectionString": {
@@ -68,7 +68,7 @@
                         },
                         {
                             "name": "PollingSchedule",
-                            "value": "0 0 9 * * *"
+                            "value": "0 0 17 10 * *"
                         },
                         {
                             "name": "AzureSQLConnectionString",
@@ -76,7 +76,7 @@
                         },
                         {
                             "name": "FtpUsername",
-                            "value": "dss"
+                            "value": "[parameters('ftpUsername')]"
                         },
                         {
                             "name": "FtpPassword",
@@ -84,7 +84,7 @@
                         },
                         {
                             "name": "FtpAddress",
-                            "value": "[parameters('ftpAddress')]"
+                            "value": "ftp://sfa.ftpstream.com/"
                         }
                     ]
                 }

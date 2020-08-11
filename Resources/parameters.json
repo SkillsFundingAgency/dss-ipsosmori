@@ -29,6 +29,9 @@
         "ftpPassword": {
             "value": "__FtpPassword__"
         },
+        "ftpUsername": {
+            "value": "__FtpUsername__"
+        },
         "azureSqlConnectionString": {
             "value": "__AzureSQLConnectionString__"
         }

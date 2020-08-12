@@ -23,6 +23,9 @@
         "templateBaseUrl": {
             "type": "string"
         },
+        "ftpAddress": {
+            "type": "string"
+        },
         "ftpPassword": {
             "type": "securestring"
         },
@@ -63,6 +66,9 @@
                     },
                     "storageAccountKey": {
                         "value": "[parameters('storageAccountKey')]"
+                    },
+                    "ftpAddress": {
+                        "value": "[parameters('ftpAddress')]"
                     },
                     "ftpPassword": {
                         "value": "[parameters('ftpPassword')]"

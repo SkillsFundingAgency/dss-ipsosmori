@@ -9,10 +9,10 @@
             "value": [ "dss-foo-ipsosmori-fa" ]
         },
         "sharedAppServicePlanName": {
-            "value": "dss-foo-shared-asp"
+            "value": "dfc-test-template-asp"
         },
         "sharedAppServicePlanResourceGroup": {
-            "value": "dss-foo-shared-rg"
+            "value": "dfc-test-template-rg"
         },
         "storageAccountName": {
             "value": "dssfooshdarmstr"
@@ -21,7 +21,10 @@
             "value": "not-a-real-key"
         },
         "templateBaseUrl": {
-            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/master-v3/Resources/"
+            "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/SDD-186-AddAppSettings-v3/Resources/"
+        },
+        "ftpAddress": {
+            "value": "ftp://foo.ftpstream.com/dss-testing/dev/"
         },
         "ftpPassword": {
             "value": "not-a-real-password"

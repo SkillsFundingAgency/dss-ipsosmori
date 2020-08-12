@@ -17,6 +17,9 @@
         "storageAccountKey": {
             "type": "string"
         },
+        "ftpAddress": {
+            "type": "string"
+        },
         "ftpPassword": {
             "type": "securestring"
         },
@@ -84,7 +87,7 @@
                         },
                         {
                             "name": "FtpAddress",
-                            "value": "ftp://sfa.ftpstream.com/"
+                            "value": "[parameters('ftpAddress')]"
                         }
                     ]
                 }

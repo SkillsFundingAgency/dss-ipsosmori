@@ -23,6 +23,9 @@
         "templateBaseUrl": {
             "value": "__NestedArmTemplateBaseUrl__"
         },
+        "ftpAddress": {
+            "value": "__FtpAddress__"
+        },
         "ftpPassword": {
             "value": "__FtpPassword__"
         },

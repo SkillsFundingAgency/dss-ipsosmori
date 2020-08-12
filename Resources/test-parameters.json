@@ -23,6 +23,9 @@
         "templateBaseUrl": {
             "value": "https://raw.githubusercontent.com/SkillsFundingAgency/dss-ipsosmori/master-v3/Resources/"
         },
+        "ftpAddress": {
+            "value": "https://not-a-real-password"
+        },
         "ftpPassword": {
             "value": "not-a-real-password"
         },

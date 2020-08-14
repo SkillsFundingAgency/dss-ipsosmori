@@ -10,11 +10,11 @@ namespace NCS.DSS.IpsosMori.Helpers
         private readonly string _ftpUsername = Environment.GetEnvironmentVariable("FtpUsername");
         private readonly string _ftpPassword = Environment.GetEnvironmentVariable("FtpPassword");
         private readonly string _ftpAddress = Environment.GetEnvironmentVariable("FtpAddress");
-
+        private readonly string _folderName = Environment.GetEnvironmentVariable("EnvironmentName");
 
         public void UploadDataToFtp(string data, string fileName)
         {
-            var request = (FtpWebRequest) WebRequest.Create(_ftpAddress + fileName);
+            var request = (FtpWebRequest) WebRequest.Create(_ftpAddress + "/" + _folderName + "/" + fileName);
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.UseBinary = false;
             request.EnableSsl = true;

@@ -26,6 +26,9 @@
         "ftpAddress": {
             "value": "ftp://foo.ftpstream.com/dss-testing/dev/"
         },
+        "ftpAddress": {
+            "value": "https://not-a-real-password"
+        },
         "ftpPassword": {
             "value": "not-a-real-password"
         },

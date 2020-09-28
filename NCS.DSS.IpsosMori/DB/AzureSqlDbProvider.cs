@@ -25,7 +25,7 @@ namespace NCS.DSS.IpsosMori.DB
                 using (var cmd = new SqlCommand(storedProcedureName, conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandTimeout = 60;
+                    cmd.CommandTimeout = 1500;
                     try
                     {
                         conn.Open();

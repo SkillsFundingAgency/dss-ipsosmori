@@ -34,6 +34,9 @@
         },
         "azureSqlConnectionString": {
             "value": "__AzureSQLConnectionString__"
+        },
+        "appInsightsInstrumentationKey": {
+            "value": "__appInsightsInstrumentationKey__" 
         }
     }
 }

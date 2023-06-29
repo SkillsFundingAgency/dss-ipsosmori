@@ -37,6 +37,9 @@
         },
         "azureSqlConnectionString": {
             "value": "not-a-real-connection-string"
+        },
+        "appInsightsInstrumentationKey": {
+            "value": "app-Insights-Instrumentation-Key" 
         }
     }
 }

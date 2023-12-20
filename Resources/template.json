@@ -33,7 +33,13 @@
             "type": "securestring"
         },
         "azureSqlConnectionString": {
-            "type": "securestring"
+            "type": "securestring"    
+        },
+        "workspaceName": {
+            "type": "string"
+        },
+        "workspaceResourceGroup": {
+            "type": "string"
         }
     },
     "variables": {
@@ -78,6 +84,9 @@
                     },
                     "azureSqlConnectionString": {
                         "value": "[parameters('azureSqlConnectionString')]"
+                    },
+                    "workspaceId": {
+                        "value": "[resourceId(parameters('workspaceResourceGroup'), 'Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
                     }
                 }
             },

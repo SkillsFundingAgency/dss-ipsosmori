@@ -37,6 +37,12 @@
         },
         "azureSqlConnectionString": {
             "value": "not-a-real-connection-string"
+        },
+        "workspaceName": {
+            "value": "aTestLogAnalyticsAccount"
+        },
+        "workspaceResourceGroup": {
+            "value": "aResourceGroup"
         }
     }
 }

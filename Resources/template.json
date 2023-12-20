@@ -33,7 +33,8 @@
             "type": "securestring"
         },
         "azureSqlConnectionString": {
-            "type": "securestring"    },
+            "type": "securestring"    
+        },
         "workspaceName": {
             "type": "string"
         },
